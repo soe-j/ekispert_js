@@ -4,6 +4,11 @@ window.onload = function(){
     data: {
       departure: '高円寺',
       arrive: '東京'
+    },
+    methods: {
+      search: function(){
+        console.log('検索');
+      }
     }
   });
 };
