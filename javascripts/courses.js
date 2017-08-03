@@ -1,4 +1,6 @@
-window.onload = function(){
+$(function(){
+  // var ekispertConfig =
+
   var courses = new Vue({
     el: '#courses',
     data: {
@@ -11,4 +13,4 @@ window.onload = function(){
       }
     }
   });
-};
+});
