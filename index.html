@@ -14,6 +14,82 @@
       <input v-model="departure">
       <input v-model="arrive">
       <button v-on:click="search">検索</button>
+
+      <div v-for="(value, key) in ResultSet">
+        <div v-if="typeof value === 'string'">
+          {{ key }} : {{ value }}
+        </div>
+        <div v-else>
+          {{ key }}
+          <div v-for="(value, key) in value">
+            <div v-if="typeof value === 'string'">
+              {{ key }} : {{ value }}
+            </div>
+            <div v-else>
+              {{ key }}
+              <div v-for="(value, key) in value">
+                <div v-if="typeof value === 'string'">
+                  {{ key }} : {{ value }}
+                </div>
+                <div v-else>
+                  {{ key }}
+                  <div v-for="(value, key) in value">
+                    <div v-if="typeof value === 'string'">
+                      {{ key }} : {{ value }}
+                    </div>
+                    <div v-else>
+                      {{ key }}
+                      <div v-for="(value, key) in value">
+                        <div v-if="typeof value === 'string'">
+                          {{ key }} : {{ value }}
+                        </div>
+                        <div v-else>
+                          {{ key }}
+                          <div v-for="(value, key) in value">
+                            <div v-if="typeof value === 'string'">
+                              {{ key }} : {{ value }}
+                            </div>
+                            <div v-else>
+                              {{ key }}
+                              <div v-for="(value, key) in value">
+                                <div v-if="typeof value === 'string'">
+                                  {{ key }} : {{ value }}
+                                </div>
+                                <div v-else>
+                                  {{ key }}
+                                  <div v-for="(value, key) in value">
+                                    <div v-if="typeof value === 'string'">
+                                      {{ key }} : {{ value }}
+                                    </div>
+                                    <div v-else>
+                                      {{ key }}
+                                      <div v-for="(value, key) in value">
+                                        <div v-if="typeof value === 'string'">
+                                          {{ key }} : {{ value }}
+                                        </div>
+                                        <div v-else>
+                                          {{ key }}
+                                          <div v-for="(value, key) in value">
+                                            {{ key }} : {{ value }}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
