@@ -15,81 +15,26 @@
       <input v-model="arrive">
       <button v-on:click="search">検索</button>
 
-      <div v-for="(value, key) in ResultSet">
-        <div v-if="typeof value === 'string'">
-          {{ key }} : {{ value }}
-        </div>
-        <div v-else>
-          {{ key }}
-          <div v-for="(value, key) in value">
-            <div v-if="typeof value === 'string'">
-              {{ key }} : {{ value }}
-            </div>
-            <div v-else>
-              {{ key }}
-              <div v-for="(value, key) in value">
-                <div v-if="typeof value === 'string'">
-                  {{ key }} : {{ value }}
-                </div>
-                <div v-else>
-                  {{ key }}
-                  <div v-for="(value, key) in value">
-                    <div v-if="typeof value === 'string'">
-                      {{ key }} : {{ value }}
-                    </div>
-                    <div v-else>
-                      {{ key }}
-                      <div v-for="(value, key) in value">
-                        <div v-if="typeof value === 'string'">
-                          {{ key }} : {{ value }}
-                        </div>
-                        <div v-else>
-                          {{ key }}
-                          <div v-for="(value, key) in value">
-                            <div v-if="typeof value === 'string'">
-                              {{ key }} : {{ value }}
-                            </div>
-                            <div v-else>
-                              {{ key }}
-                              <div v-for="(value, key) in value">
-                                <div v-if="typeof value === 'string'">
-                                  {{ key }} : {{ value }}
-                                </div>
-                                <div v-else>
-                                  {{ key }}
-                                  <div v-for="(value, key) in value">
-                                    <div v-if="typeof value === 'string'">
-                                      {{ key }} : {{ value }}
-                                    </div>
-                                    <div v-else>
-                                      {{ key }}
-                                      <div v-for="(value, key) in value">
-                                        <div v-if="typeof value === 'string'">
-                                          {{ key }} : {{ value }}
-                                        </div>
-                                        <div v-else>
-                                          {{ key }}
-                                          <div v-for="(value, key) in value">
-                                            {{ key }} : {{ value }}
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- item template -->
+      <script type="text/x-template" id="item-template">
+        <li>
+          <div
+            :class="{bold: isFolder}"
+            @click="toggle"
+            @dblclick="changeType">
+            {{model.name}}
+            <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
           </div>
-        </div>
-      </div>
+          <ul v-show="open" v-if="isFolder">
+            <item
+              class="item"
+              v-for="model in model.children"
+              :model="model">
+            </item>
+          </ul>
+        </li>
+      </script>
+
     </div>
   </body>
 </html>
